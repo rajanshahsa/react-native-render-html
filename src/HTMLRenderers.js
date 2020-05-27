@@ -30,8 +30,9 @@ export function a (htmlAttribs, children, convertedCSSStyles, passProps) {
                 view[0].props.style.push({ marginRight: 4, marginLeft: 4 })
             }
         })
+        let alignSelf = htmlAttribs.alignSelf != null ? htmlAttribs.alignSelf : 'flex-start'
         return (
-            <TouchableOpacity onPress={onPress} key={key} style={{ flexDirection: 'row', alignSelf: "center" }}>
+            <TouchableOpacity onPress={onPress} key={key} style={{ flexDirection: 'row', alignSelf: alignSelf }}>
                 { children || data }
             </TouchableOpacity>
         );
