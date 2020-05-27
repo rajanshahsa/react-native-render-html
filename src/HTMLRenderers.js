@@ -26,8 +26,10 @@ export function a (htmlAttribs, children, convertedCSSStyles, passProps) {
         );
     } else {
         children.forEach(view => {
-            if (view.length > 0 && view[0].props != null) {
-                view[0].props.style.push({ marginRight: 4, marginLeft: 4 })
+            if (view.length > 0 && view[0].props != null && view[0].props.style != null) {
+                if (view[0].props.style.length > 0) {
+                    view[0].props.style.push({ marginRight: 4, marginLeft: 4 })
+                }
             }
         })
         let alignSelf = htmlAttribs.alignSelf != null ? htmlAttribs.alignSelf : 'flex-start'
