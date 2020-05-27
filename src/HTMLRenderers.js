@@ -25,8 +25,13 @@ export function a (htmlAttribs, children, convertedCSSStyles, passProps) {
             </Text>
         );
     } else {
+        children.forEach(view => {
+            if (view.length > 0 && view[0].props != null) {
+                view[0].props.style.push({ marginRight: 4, marginLeft: 4 })
+            }
+        })
         return (
-            <TouchableOpacity onPress={onPress} key={key}>
+            <TouchableOpacity onPress={onPress} key={key} style={{ flexDirection: 'row', alignSelf: "center" }}>
                 { children || data }
             </TouchableOpacity>
         );
